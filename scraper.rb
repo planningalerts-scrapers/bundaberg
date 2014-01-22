@@ -1,3 +1,4 @@
+require 'scraperwiki'
 require 'mechanize'
 
 starting_url = 'http://da.bundaberg.qld.gov.au/modules/ApplicationMaster/default.aspx?page=found&1=thisweek&4a=333,322,321,324,323,325&6=F'
@@ -28,7 +29,7 @@ def scrape_table(doc, comment_url)
       'date_scraped' => Date.today.to_s
     }
     
-    if ScraperWiki.select("* from swdata where `council_reference`='#{record['council_reference']}'").empty? 
+    if ScraperWiki.select("* from data where `council_reference`='#{record['council_reference']}'").empty? 
       ScraperWiki.save_sqlite(['council_reference'], record)
     else
       puts "Skipping already saved record " + record['council_reference']
