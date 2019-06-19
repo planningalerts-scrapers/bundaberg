@@ -16,6 +16,7 @@ GIT
       scraperwiki
 
 GEM
+  remote: https://rubygems.org/
   specs:
     connection_pool (2.2.2)
     domain_name (0.5.20180417)
